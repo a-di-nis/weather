@@ -13,17 +13,21 @@
     </head>
     <body>
         <section class="top-section">
-            <h1>Check your weather</h1>
-            <form id="app">
-                <div>
-                    <label for="city">City Name: </label>
-                    <input v-model="cityInput" type="text" id="cityInput" name="city"><br>
-                    <button v-on:click="send">Submit</button>
-                </div>
-                <img v-if="weather != undefined" v-bind:src="weather.weatherImage"/>
-                <p v-if="weather != undefined">{{ weather.weather }}</p>
-                <p v-if="weather != undefined">Temperature in {{ weather.city }}: {{ weather.temperature }} </p>
-            </form>
+            <div>
+                <h1>Check your weather</h1>
+                <form id="app">
+                    <div>
+                        <label for="city">City Name: </label>
+                        <input v-model="cityInput" type="text" id="cityInput" name="city"><br>
+                        <button v-on:click="send">Submit</button>
+                    </div>
+                    <div class="weather">
+                        <img v-if="weather != undefined" v-bind:src="weather.weatherImage"/>
+                        <p v-if="weather != undefined">{{ weather.weather }}</p>
+                    </div>
+                    <p v-if="weather != undefined">Temperature in {{ weather.city }}: {{ weather.temperature }}°C </p>
+                </form>
+            </div>
         </section>
         
         <!-- development version, includes helpful console warnings -->
