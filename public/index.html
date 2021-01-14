@@ -6,17 +6,25 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/style.css">
     </head>
     <body>
-        <form id="app">
-            <div>
-                <label for="city">City: </label><br>
-                <input v-model="cityInput" type="text" id="cityInput" name="city"><br>
-                <button v-on:click="send">Submit</button>
-            </div>
-            <p v-if="weather != undefined">Weather in {{ weather.city }}: {{ weather.temperature }} , {{ weather.weather }}, <img v-bind:src="weather.weatherImage"/></p>
-        </form>
+        <section class="top-section">
+            <h1>Check your weather</h1>
+            <form id="app">
+                <div>
+                    <label for="city">City Name: </label>
+                    <input v-model="cityInput" type="text" id="cityInput" name="city"><br>
+                    <button v-on:click="send">Submit</button>
+                </div>
+                <img v-if="weather != undefined" v-bind:src="weather.weatherImage"/>
+                <p v-if="weather != undefined">{{ weather.weather }}</p>
+                <p v-if="weather != undefined">Temperature in {{ weather.city }}: {{ weather.temperature }} </p>
+            </form>
+        </section>
         
         <!-- development version, includes helpful console warnings -->
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
@@ -49,9 +57,6 @@
                     } 
                 }
             })
-
-            
-
             
         </script>
     </body>
